@@ -5,4 +5,9 @@ export interface ButtonProps {
     title: string;
     className?: string;
     handleClick?: MouseEventHandler<HTMLButtonElement>;
+    link?: string;
+}
+export interface SearchManufacturerProps {
+    manufacturer: string;
+    setManufacturer: (manufacturer: string) => void;
 }

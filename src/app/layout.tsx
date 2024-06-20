@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { spaceGrotesk } from "./fonts";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { Providers } from "./provider";
+import { Manrope } from "next/font/google";
 
+const manrope = Manrope({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,10 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`bg-light text-dark dark:bg-dark dark:text-light ${spaceGrotesk.className}`}>
-        <Navbar/>
-        {children}
-        <Footer/>
+      <body className={` w-full h-full ${manrope.className}`}>
+        <Providers>
+          <Navbar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
